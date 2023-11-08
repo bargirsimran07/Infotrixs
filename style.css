@@ -1,0 +1,106 @@
+body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+			background-image:url(bg.jpg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+			background-size:cover;
+			background-position:center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+		
+		nav {
+            
+            overflow: hidden;
+            text-align: left;
+            padding: 10px;
+			
+			
+        }
+
+        nav font {
+            text-align:left;
+			text-decoration:none;
+			font-size:50px;
+			font-family:Arial, Helvetica, sans-serif;
+			color:white;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-align: left;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+			margin-right:20px;
+        }
+
+        nav a:hover {
+             background-color: #FF1493;
+			color:black;
+			border-radius:5px;
+        }
+		nav a.active{
+			background-color: white;
+			color:black;
+			border-radius:5px;
+		}
+
+        #quote-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			color:#000000;
+        }
+
+        #quote {
+            font-size: 24px;
+        }
+
+        #author {
+            font-size: 18px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        #search-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #Search-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 16px;
+        }
+
+        #search-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            color: #fff;
+            border: none;
+            border-radius: 25px; /* Increased border radius for a button shape */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+			margin-bottom:80px;
+        }
+
+        #search-button:hover {
+            background-color: #FF1493;
+        }
+		#date-time {
+            font-size: 18px;
+            margin-top: 20px;
+        }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quote of the Day</title>
+	<link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+<nav>
+        <a href="#">Home</a>
+        <a href="https://www.linkedin.com/in/simran-bargir-220797222/">Visit</a>
+    </nav>
+	
+	 <h1>Quote of the Day</h1>
+	
+    <div id="quote-container">
+        <p id="quote">Loading...</p>
+        <p id="author"></p>
+    </div>
+
+    <div id="search-form">
+        <input type="text" id="Search-input" placeholder="Search for a quote" required>
+        <button onClick="searchQuote()" id="search-button">Search</button>
+		
+    </div>
+	<p id="date-time">Fetching date and time...</p>
+
+
+    <script>
+        const quotes = [
+            {
+                quote: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "In the middle of every difficulty lies opportunity.",
+                author: "Albert Einstein"
+            },
+            {
+                quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+			{
+                quote: "Everything is hard before it is easy.",
+                author: "Johann Wolfgang von Goethe"
+            },
+            {
+                quote: "Don't let your happiness depend on something you may lose.",
+                author: "C.S. Lewis"
+            },
+            {
+                quote: "We are all broken, that's how the light gets in.",
+                author: "Ernest Hemingway"
+            },
+			{
+                quote: "Monsters are real, ghosts are real, too. They live inside us, and sometimes they win.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "In the middle of every difficulty lies opportunity.",
+                author: "Stephen King"
+            },
+            {
+                quote: "It hurt because it mattered",
+                author: "John Green"
+            },
+			{
+                quote: "Some of us think holding on makes us strong; but sometimes it is letting go.",
+                author: "Herman Hesse"
+            },
+            {
+                quote: "I want to taste and glory in each day, and never be afraid to experience pain.",
+                author: "Sylvia Plath"
+            },
+            {
+                quote: "Life's not fair; why should I be?",
+                author: "Margaret Atwood"
+            },
+			{
+                quote: "Never look back unless you are planning to go that way.",
+                author: "Henry David Thoreau"
+            },
+            {
+                quote: "We rise by lifting others.",
+                author: "Robert Ingersoll"
+            },
+			{
+                quote: "I can be changed by what happens to me. But I refuse to be reduced by it.",
+                author: "​Maya Angelou"
+            },
+            {
+                quote: "Life is a journey, not a destination.",
+                author: "Ralph Waldo Emerson"
+            },
+			{
+                quote: "The clearest way into the universe is through a forest wilderness.",
+                author: "John Muir"
+            },
+			{
+                quote: "As you start to walk on the way, the way appears.",
+                author: "​Rumi"
+            },
+            {
+                quote: "To thine own self be true.",
+                author: "​William Shakespeare"
+            },
+			{
+                quote: "Straight roads do not make skillful drivers.",
+                author: "Paula Coelho"
+            },
+			{
+                quote: "To avoid criticism: say nothing, do nothing, be nothing.",
+                author: "​Aristotle"
+            },
+            {
+                quote: "Dwell in possibility.",
+                author: "Emily Dickinson"
+            },
+			{
+                quote: "When you can't change the direction of the wind, adjust your sails.",
+                author: "H. Jackson Brown Jr."
+            },
+			{
+                quote: "Have faith, have faith. When you have nothing else have faith.",
+                author: "​Francine Rivers"
+            },
+            {
+                quote: "Rock solid became the solid foundation on which I rebuilt my life.",
+                author: "J.K. Rowling"
+            },
+			{
+                quote: "Let yourself be gutted. Let it open you. Start there.",
+                author: "Cheryl Strayed"
+            },
+			{
+                quote: "Laugh loudly, laugh often, and most important, laugh at yourself.",
+                author: "​Chelsea Handler"
+            },
+            {
+                quote: "Life is tough my darling, but so are you.",
+                author: "​Stephanie Bennett Henry"
+            },
+            // Add more quotes here
+        ];
+
+        function displayQuoteOfTheDay() {
+            const now = new Date();
+            const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+            const randomIndex = dayOfYear % quotes.length;
+            const quoteElement = document.getElementById("quote");
+            const authorElement = document.getElementById("author");
+            quoteElement.textContent = quotes[randomIndex].quote;
+            authorElement.textContent = `- ${quotes[randomIndex].author}`;
+        }
+
+        function searchQuote() {
+    		const searchInput = document.getElementById("Search-input").value.toLowerCase();
+    		const quoteElement = document.getElementById("quote");
+    		const authorElement = document.getElementById("author");
+
+    		if (searchInput === "") {
+        	quoteElement.textContent = "Please enter author name...";
+        	authorElement.textContent = "";
+    		} else {
+        	const matchingQuotes = quotes.filter(quote => quote.author.toLowerCase().includes(searchInput));
+
+        	if (matchingQuotes.length > 0) {
+            const randomIndex = Math.floor(Math.random() * matchingQuotes.length);
+            quoteElement.textContent = matchingQuotes[randomIndex].quote;
+            authorElement.textContent = `- ${matchingQuotes[randomIndex].author}`;
+        	} else {
+            quoteElement.textContent = "No matching quotes found.";
+            authorElement.textContent = "";
+        }
+    }
+}
+
+		
+		
+
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById("date-time");
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            dateTimeElement.textContent = `Current Date and Time: ${dateTimeString}`;
+        }
+
+        window.addEventListener("load", () => {
+            displayQuoteOfTheDay();
+            updateDateTime();
+        });
+    </script>
+</body>
+</html>
